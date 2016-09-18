@@ -1,0 +1,4 @@
+{
+	"StreamAction": "stream.action.js",
+	"StreamReducer": "stream.reducer.js"
+}

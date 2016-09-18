@@ -1,0 +1,70 @@
+/*
+* @Author: d4r
+* @Date:   2016-09-04 22:51:20
+* @Last Modified by:   d4r
+* @Last Modified time: 2016-09-18 16:21:24
+*/
+#banner:after{
+ background-image: -webkit-linear-gradient(top, rgba(193, 193, 193, 0), rgba(255, 204, 177,0)), url("images/overlay.png")
+}
+
+#banner .content{
+background-color: rgba(236,231,210,0.7);
+}
+.spotlight.style1 .content,.spotlight.style2 .content, .spotlight.style3 .content {
+	border-color:rgba(236,231,210,0.7);
+}
+p{
+	color: #969696;
+}
+h2 {
+	color: rgb(67, 62, 62);
+}
+h3{
+	color:#bcbba6;
+}
+#four {
+	background: #f9f9f4;
+}
+#four a.button {
+	background-color: #e44c65;
+}
+#titleBar {
+	background: #e44c65;
+}
+header p {
+	color: #774f38;
+}
+.spotlight .content {
+	background-color: rgba(231, 219, 200, 0.9);
+}
+
+@media screen and (max-width: 1280px) {
+	.row.uniform > section {
+		height: 400px;
+	}
+}
+
+@media screen and (max-width: 980px) {
+	#banner .content {
+		padding: 4.5em;
+	}
+	.spotlight .content {
+		background-color: rgb(231, 219, 200);
+	}
+	.spotlight .image.main {
+		max-height: 100%;
+	}
+}
+
+@media screen and (max-width: 735px) {
+	#banner .content {
+		padding: 4.5em;
+	}
+}
+
+@media screen and (max-width: 495px) {
+	#banner .content {
+		padding: 3em 1.5625em 5.25em 1.5625em;
+	}
+}

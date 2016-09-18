@@ -1,0 +1,5 @@
+exports const HOME = '/'
+exports const STREAM = '/stream'
+exports const PROFILE = '/profile'
+exports const TRIP = '/trip'
+exports const SEARCH = '/search'
