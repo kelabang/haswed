@@ -22,7 +22,7 @@ export {Login}
 import IndexApp from './route/indexapp.js'
 export {IndexApp}
 
-import IndexToken from './route/IndexToken.js'
+import IndexToken from './route/indextoken.js'
 export {IndexToken}
 
 import IndexLogin from './route/login/indexlogin.js'

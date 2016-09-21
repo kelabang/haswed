@@ -2,13 +2,13 @@
 * @Author: Imam
 * @Date:   2016-07-31 16:49:27
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-08-21 03:51:39
+* @Last Modified time: 2016-09-22 00:30:27
 */
 
 'use strict'
 
 // import GalleryItem from './../../module/gallery/component/galleryitem.dump.component.js'
-import ItemMenu from "./../../module/menu/component/ItemMenu.dumb.component.js"
+import ItemMenu from "./../../module/menu/component/itemmenu.dumb.component.js"
 
 class IndexDashboard extends React.Component {
 	constructor (props) {
