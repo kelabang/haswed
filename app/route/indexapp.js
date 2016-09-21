@@ -1,15 +1,15 @@
 /*
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
-* @Last Modified by:   d4r
-* @Last Modified time: 2016-09-18 16:07:28
+* @Last Modified by:   Imam
+* @Last Modified time: 2016-09-22 00:37:40
 */
 
 'use strict';
 
 import Modal from './modal.js'
 import BuilderMenu from './../module/menu/component/buildermenu.smart.component.js'
-import PublicWelcome from './public/PublicWelcome.js'
+import PublicWelcome from './public/publicwelcome.js'
 // import WeddingMain from './../module/wedding/component/wedding.main.component.js'
 import createHashHistory from 'history/lib/createHashHistory'
 import update from 'react/lib/update'
