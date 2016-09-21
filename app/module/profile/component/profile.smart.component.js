@@ -1,9 +1,9 @@
 'use strict'
 
-import ProfileAlias from "./profilealias.dump.Component.js"
-import ProfileImage from "./profileimage.dump.Component.js"
-import ProfileName from "./profilename.dump.Component.js"
-import ProfileData from "./profiledata.dump.Component.js"
+import ProfileAlias from "./profilealias.dump.component.js"
+import ProfileImage from "./profileimage.dump.component.js"
+import ProfileName from "./profilename.dump.component.js"
+import ProfileData from "./profiledata.dump.component.js"
 
 class Profile extends React.Component {
 
