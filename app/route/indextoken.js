@@ -1,8 +1,8 @@
 /*
 * @Author: d4r
 * @Date:   2016-09-12 20:17:17
-* @Last Modified by:   d4r
-* @Last Modified time: 2016-09-13 19:01:56
+* @Last Modified by:   Imam
+* @Last Modified time: 2016-09-25 16:17:58
 */
 
 'use strict';
@@ -19,7 +19,7 @@ class IndexToken extends React.Component {
 		let query = Util.parseQueryString(this.props.routeParams.splat)
 		console.log('query')
 		console.log(query)
-		if(Util.setAuthTwitter(query)) return window.location ='/haswed'
+		if(Util.setAuthTwitter(query)) return window.location ='/'
 	}	
 	render () {
 		console.log(':: render')
