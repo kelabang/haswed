@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-08-14 19:03:35
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-09-21 22:10:57
+* @Last Modified time: 2016-09-25 15:44:00
 */
 
 'use strict';
@@ -11,7 +11,7 @@ import Auth0 from 'auth0-js'
 const pub_ospry = "pk-test-2yfxh24n49ljvvajuzm1rxv6"
 const sub_ospry = "polar-acai"
 const dom_ospry = "ospry.io"
-const api_domain = "http://104.199.140.83:3000"
+const api_domain = "http://"+window.location.hostname+":3000"
 const  auth0 = new Auth0({
       clientID: 'isGktOP2m3Q1f8d3219eik5QKCu3bOcV',
       domain: 'kelabang.au.auth0.com',

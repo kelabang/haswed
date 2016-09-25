@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-09-22 00:37:40
+* @Last Modified time: 2016-09-24 23:03:28
 */
 
 'use strict';
@@ -268,12 +268,14 @@ class IndexApp extends React.Component {
 		console.log(this.refs.content)
 		const textarea = this.refs.content
 		const heightLimit = 200
-		textarea.oninput = function() {
-			textarea.style.height = ""; /* Reset the height*/
-			textarea.style.height = Math.min(textarea.scrollHeight, heightLimit) + "px";
-		};
-		textarea.onblur = function () {
-			textarea.style.height = ""
+		if(textarea){
+			textarea.oninput = function() {
+				textarea.style.height = ""; /* Reset the height*/
+				textarea.style.height = Math.min(textarea.scrollHeight, heightLimit) + "px";
+			};
+			textarea.onblur = function () {
+				textarea.style.height = ""
+			}
 		}
 	}
 	renderFormTestimoni () {
