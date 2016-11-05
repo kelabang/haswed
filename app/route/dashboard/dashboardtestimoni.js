@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-08-16 00:31:32
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-08-29 01:08:41
+* @Last Modified time: 2016-11-03 02:14:38
 */
 
 'use strict';
@@ -127,11 +127,15 @@ class DashboardTestimoni extends React.Component {
 		console.log(this.props.item)
 		this.props.setSelected(this.props.item)
 	}
+	
 	renderList () {
 		console.log(':: render list')
 		return this.props.testimonies.map((item) => {
 			return (
-				<TestimoniItem key={item.id} item={item} onShowDetail={this.onShowDetail} selected={this.state.selected} setSelected={this.setSelected.bind(this)} />
+				<TestimoniItem key={item.id} 
+					enableAction={this.enableAction.bind(this)}
+					disableAction={this.disableAction.bind(this)}
+				 item={item} onShowDetail={this.onShowDetail} selected={this.state.selected} setSelected={this.setSelected.bind(this)} />
 			)
 		})
 	}
@@ -146,7 +150,7 @@ class DashboardTestimoni extends React.Component {
 	renderForm() {
 		console.log(':: renderForm')
 		// this.refs.filename.value = this.state.selectedItem.name
-		// this.refs.caption.value = this.state.selectedItem.caption
+		// this.refs.caption.value = this.state.selected .caption
 		let images = (this.state.selectedItem.images.length > 0)? this.state.selectedItem.images[0]: null
 		let ImageDisplay = (images)? (<img className="u-max-full-width" src={images.name}/>) : (<div />) 
 		return (

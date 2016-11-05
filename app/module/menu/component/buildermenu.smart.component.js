@@ -1,8 +1,8 @@
 /*
 * @Author: d4r
 * @Date:   2016-09-04 00:55:30
-* @Last Modified by:   d4r
-* @Last Modified time: 2016-09-04 14:57:22
+* @Last Modified by:   Imam
+* @Last Modified time: 2016-11-05 15:57:04
 */
 
 'use strict';
@@ -11,10 +11,15 @@ class BuilderMenu extends React.Component {
 	constructor (props) {
 		super(props)
 	}
+	overClick (id, e) {
+		e.preventDefault()
+		let dom = document.getElementById(id)
+		// scrollIntoView.call(dom, {behavior: "smooth"})
+	}
 	buildTree (props) {
 		console.log(":: buildTree")
 		let keys = Object.keys(props).map((v, i) => {
-			let cn = ''
+			let cn = 'canclick'
 			if(v.includes(':')){
 				let [z,d] = v.split(':')
 				cn = d
@@ -22,13 +27,14 @@ class BuilderMenu extends React.Component {
 			}
 			if(typeof props[v] == 'object') return (
 				<li key={i}>
-					<a className={cn} href="#">{Util.uppercaseFirst(v)}</a>
+					<a className='' href="#">{Util.uppercaseFirst(v)}</a>
 					{this.buildTree(props[v])}
 				</li>
 			)
 			return (
 				<li key={i}>
-					<a className={cn} href="#">{Util.uppercaseFirst(v)}</a>
+					<a className={cn} href={'#'+props[v]} 
+						 >{Util.uppercaseFirst(v)}</a>
 				</li>
 			)  
 		})

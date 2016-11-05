@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-08-14 19:03:35
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-09-25 15:44:00
+* @Last Modified time: 2016-11-05 00:38:28
 */
 
 'use strict';
@@ -47,7 +47,7 @@ export function getDataProfile () {
 		})
 	}
 	return fetch(path, options).then((response) => {
-		if(response.status == 401) return false
+		if(response.status !== 200) return false
 		return response.json()
 	})
 }
@@ -127,6 +127,13 @@ export function twitterLogin () {
 	console.log(':: twitterLogin')
 	return auth0.login({
 		connection: 'twitter'
+	})
+}
+
+export function googleLogin () {
+	console.log(':: googleLogin')
+	return auth0.login({
+		connection: 'google-oauth2'
 	})
 }
 

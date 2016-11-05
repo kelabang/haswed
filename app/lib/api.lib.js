@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-08-09 23:01:28
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-08-28 02:20:50
+* @Last Modified time: 2016-11-03 02:21:41
 */
 
 'use strict';
@@ -28,7 +28,7 @@ export function getUser (username) {
 }
 
 export function getAllTestimoni() {
-	const location = host + "/testimoni"
+	const location = host + "/testimoni_all"
 	return fetch(location, {
 		method: "GET",
 		headers: {
@@ -69,6 +69,42 @@ export function addTestimoni(content,image) {
 			content,
 			images: [image]
 		})
+	})
+}
+
+export function enableTestimoni (id) {
+	const location = host + '/testimoni/enable'
+	return fetch(location, {
+		method: "POST",
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'Authorization': 'Bearer ' + Util.getLocalUser().access_token
+		},
+		mode: 'cors',
+		body: JSON.stringify({
+			id
+		})
+	}).then((response) => {
+		return response.json()
+	})
+}
+
+export function disableTestimoni (id) {
+	const location = host + '/testimoni/disable'
+	return fetch(location, {
+		method: "POST",
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'Authorization': 'Bearer ' + Util.getLocalUser().access_token
+		},
+		mode: 'cors',
+		body: JSON.stringify({
+			id
+		})
+	}).then((response) => {
+		return response.json()
 	})
 }
 

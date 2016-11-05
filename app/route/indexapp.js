@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-09-24 23:03:28
+* @Last Modified time: 2016-11-06 02:50:59
 */
 
 'use strict';
@@ -10,9 +10,16 @@
 import Modal from './modal.js'
 import BuilderMenu from './../module/menu/component/buildermenu.smart.component.js'
 import PublicWelcome from './public/publicwelcome.js'
+import GRMap from './../module/map/component/map.smart.component.js'
 // import WeddingMain from './../module/wedding/component/wedding.main.component.js'
 import createHashHistory from 'history/lib/createHashHistory'
 import update from 'react/lib/update'
+const GEDUNG_DARMA_WANITA = {
+  lat: -6.2211729,
+  lng: 106.830698
+};
+// import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+const scrollIntoView = require('@treora/scroll-into-view')
 const appHistory = ReactRouter.useRouterHistory(createHashHistory)({queryKey: false})
 const parser = new HTMLtoReact.Parser(React)
 class IndexApp extends React.Component {
@@ -20,6 +27,14 @@ class IndexApp extends React.Component {
 		console.log(':: constructor')
 		super(props)
 		this.state = {
+			markers: [{
+		      position: {
+		        lat: 25.0112183,
+		        lng: 121.52067570000001,
+		      },
+		      key: `Taiwan`,
+		      defaultAnimation: 2,
+		    }],
 			static: {
 				logo: "Hasyim Yoddie",
 				title: `<h2>Hasyim & Yoddie</h2>
@@ -27,16 +42,38 @@ class IndexApp extends React.Component {
 				page1: {
 					header: `
 						<h2>We are getting married</h2>
-						<p>Nascetur eu nibh vestibulum amet gravida nascetur praesent</p>
+						<p>
+							We can’t wait to celebrate our wedding
+							<br/>
+							<br/>Saturday, 19th November 2016
+							<br/>At Gedung Dharma Wanita Persatuan Pusat Jalan Pedurenan Masjid Kavling F.01 Karet Kuningan, Jakarta Selatan
+						</p>
 					`,
 					p1: `
+						<p>
+							Akad Nikah
+							08.00 a.m - 10.00 a.m
+
+							Resepsi
+							11.00 a.m - 1.00 p.m
+						</p>
+					`,
+					p2: `
+						<p>
+							Until then, take some time exploring our site.
+							<br/>
+							<br/>The Family of Mr. Refilman Thaher & Mrs. Sriyanti
+							<br/>The Family of Mr. Jarkasih & Mrs. Agustini
+						</p>
+					`,
+					p12: `
 							<p>Feugiat accumsan lorem eu ac lorem amet sed accumsan donec.
 							Blandit orci porttitor semper. Arcu phasellus tortor enim mi
 							nisi praesent dolor adipiscing. Integer mi sed nascetur cep aliquet
 							augue varius tempus lobortis porttitor accumsan consequat
 							adipiscing lorem dolor.</p>
 					`,
-					p2: `
+					p22: `
 						<p>Morbi enim nascetur et placerat lorem sed iaculis neque ante
 						adipiscing adipiscing metus massa. Blandit orci porttitor semper.
 						Arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer
@@ -50,7 +87,9 @@ class IndexApp extends React.Component {
 						<p>Nunc commodo accumsan eget id nisi eu col volutpat magna</p>
 					`,
 					p1: `
-						<p>He homero prompta constituam pro. Vim omnis porro eu, iusto deserunt incorrupte sea ad. Aliquam compre hensam definitionem eam ex, ea ius facete nominaviId vim laudem nusquam, mea cu torquatos vituperat ribus, mea tation iisque in. An viris imperdiet mela Causae denique convenire no pri. Diam discere adole cens pri eu, vel dico vidisse disputationi ne. An sea unum iusto quando, id accumsan persecuti ius. Vidisse scaevola ut eam, ne his modo voluptua evertitur.</p>
+						<p>
+							Hasyim“Ithink‘technically’thegirlofmydreamswouldprobablyhaveanaverageweightandheight,youknow maybe a different hair. She’d probably be a little prettier.Buttruthfully,Yoddieisbetterthanthegirlofmydreams,she’sreal.Ilovehowshemakesmefeel,like anything's possible, or like life is worth it.”
+						</p>
 						<ul class="actions">
 							<li><a href="#" class="button">Learn More</a></li>
 						</ul>
@@ -101,28 +140,35 @@ class IndexApp extends React.Component {
 					`,
 				},
 				menu: {
-					"about": "",
-					"layouts": {
-						"left-sidebar": "",
-						"right-sidebar": "",
-						"no-sidebar": "",
-						"submenu": {
-							"option 1": "",
-							"option 2": "",
-							"option 3": "",
-							"option 4": {
-								"hoho":"",
-								"hoho 1": ""
-							}
-						}
+					"when and where ?": "one",
+					"who and why ?": {
+						"hasyim": "two",
+						"yoddie": "three"
 					},
-					"gallery": "",
-					"signup:button special": "",
+					"show the map": "seven",
+					// "layouts": {
+					// 	"left-sidebar": "",
+					// 	"right-sidebar": "",
+					// 	"no-sidebar": "",
+					// 	"submenu": {
+					// 		"option 1": "",
+					// 		"option 2": "",
+					// 		"option 3": "",
+					// 		"option 4": {
+					// 			"hoho":"",
+					// 			"hoho 1": ""
+					// 		}
+					// 	}
+					// },
+					// "gallery": "",
+					// "signup:button special": "",
 				}
 			},
+			screen_name: 'anonymous',
+	
 			publictestimoni: [],
 			formtestimoni: {
-				connect: false, 
+				connect: false,
 				profile: null,
 			},
 			background: {
@@ -143,7 +189,7 @@ class IndexApp extends React.Component {
 		// 		"formtestimoni": {
 		// 			connect: {$set: true},
 		// 			profile: {$set: data}
-		// 		} 
+		// 		}
 		// 	}))
 		// })
 		Promise.all([
@@ -154,12 +200,16 @@ class IndexApp extends React.Component {
 			let formtestimoni = v[0]
 			let publictestimoni = v[1]
 			let toUpdate = {}
-			if(formtestimoni) toUpdate.formtestimoni = {
-				connect: true,
-				profile: formtestimoni
+			if(formtestimoni) {
+				// this.state.formtestimoni.profile.screen_name
+				console.log(formtestimoni)
+				toUpdate.screen_name = (formtestimoni.screen_name)? '@'+formtestimoni.screen_name: formtestimoni.name
+				toUpdate.formtestimoni = {
+					connect: true,
+					profile: formtestimoni
+				}
 			}
 			if(publictestimoni) toUpdate.publictestimoni = publictestimoni.data
-			console.log(">> toUpdate", toUpdate)
 			this.setState(toUpdate)
 
 		})
@@ -170,10 +220,60 @@ class IndexApp extends React.Component {
 	componentDidMount() {
 		console.log(':: componentDidMount')
 		// console.log(Util)
+		scrollIntoView.installPolyfill()
 		Util.Main.init()
 		this.autogrowTextarea()
+		$('a.canclick').off('click')
+		$('a.canclick').on('click', (e) => {
+			e.preventDefault()
+		})
+		$('a.canclick').off('mousedown')
+		$('a.canclick').on('mousedown', (e) => {
+			console.log('clicked')
+			e.preventDefault()
+			let href = $(e.target).attr('href')
+			let dom = document.getElementById(href.replace('#', ''))
+			dom.scrollIntoView()
+			// let dom = document.getElementById(id)
+			// scrollIntoView.call(this, {behavior: "smooth"})
+		})
+		$('a.toggle').on('click', () => {
+			$('#navPanel a').off('click')
+			$('#navPanel a').on('click', (e) => {
+				e.preventDefault()
+			})
+		})
 	}
 	componentDidUpdate () {
+		// Util.Main.init()
+		$('#nav > ul').unbind('dropotron')
+		$('#nav > ul').dropotron({
+			alignment: 'right',
+			hideDelay: 350
+		});
+		$('a.canclick').off('click')
+		$('a.canclick').on('click', (e) => {
+			e.preventDefault()
+		})
+		// $('#navPanel a.link').unbind('click')
+		// $('#navPanel a.link').off('click')
+		// $('#navPanel a.link').on('click', (e) => {
+		// 	e.preventDefault()
+		// 	console.log('link')
+		// })
+		$('a.canclick').off('mousedown')
+		$('a.canclick').on('mousedown', (e) => {
+			console.log('clicked')
+			e.preventDefault()
+			console.log(e.target)
+			let href = $(e.target).attr('href')
+			console.log(href)
+			let dom = document.getElementById(href.replace('#', ''))
+			dom.scrollIntoView()
+			// let dom = document.getElementById(id)
+			// scrollIntoView.call(this, {behavior: "smooth"})
+		})
+
 		this.autogrowTextarea()
 	}
 	componentWillUnmount() {
@@ -226,8 +326,8 @@ class IndexApp extends React.Component {
 	renderItemTestimoni (name, content, image) {
 		console.log(":: renderItemTestimoni")
 		let imaged = (image)? (<img className="icon alt major" src={image} />): (<span className="icon alt major fa-area-chart">
-				</span>)  
-		if(content.length > 140) content = content.substring(0, 140) + '...' 
+				</span>)
+		if(content.length > 140) content = content.substring(0, 140) + '...'
 		return (
 			<section key={uuid.v4()} className="4u 6u(medium) 12u$(xsmall)">
 				{imaged}
@@ -241,12 +341,13 @@ class IndexApp extends React.Component {
 		e.preventDefault()
 		let content  = this.refs.content.value
 		let name = this.state.formtestimoni.profile.name
-		let alias = this.state.formtestimoni.profile.screen_name
+		let alias = this.state.formtestimoni.profile.screen_name || this.state.formtestimoni.profile.name
 		let user_id = this.state.formtestimoni.profile.identities[0].user_id
+		let provider = this.state.formtestimoni.profile.identities[0].provider
 		let image = this.state.formtestimoni.profile.picture
 		this.refs.content.value = ''
 		if(image) image = image.replace('_normal', '')
-		Util.submitTestimoni(name, content, image, alias, user_id, 'twitter')
+		Util.submitTestimoni(name, content, image, alias, user_id, provider)
 			.then((data) => {
 				console.log('stored ..')
 				console.log(data)
@@ -262,6 +363,11 @@ class IndexApp extends React.Component {
 		console.log(':: connect twitter')
 		e.preventDefault()
 		Util.twitterLogin()
+	}
+	onConnectGoogle (e) {
+		console.log(':: connect google')
+		e.preventDefault()
+		Util.googleLogin()
 	}
 	autogrowTextarea () {
 		console.log(':: autogrowTextarea')
@@ -286,12 +392,13 @@ class IndexApp extends React.Component {
 		let toRender = (
 			<div className="row uniform 50%">
 				<div className="12u$ 12u$(xsmall)"><input onClick={this.onConnectTwitter.bind(this)} type="button" value="login with twitter" className="fit special" /></div>
+				<div className="12u$ 12u$(xsmall)"><input onClick={this.onConnectGoogle.bind(this)} type="button" value="login with google" className="fit special" /></div>
 			</div>
 		)
 		if(this.state.formtestimoni.connect) toRender = (
 			<div className="row uniform 50%">
 				<div className="12u$ 12u$(xsmall)"><textarea ref="content" placeholder="Your Whises here..." /></div>
-				<div className="12u$ 12u$(xsmall)"><input type="submit" value={"Submit Whises as @" + this.state.formtestimoni.profile.screen_name} className="fit special" /></div>
+				<div className="12u$ 12u$(xsmall)"><input type="submit" value={"Submit Whises as " + this.state.screen_name} className="fit special" /></div>
 			</div>
 		)
 		return (
@@ -335,6 +442,13 @@ class IndexApp extends React.Component {
 					}
 				})}
 			</div>
+		)
+	}
+	renderMap () {
+		return ( 
+			<GRMap 
+				target="map-1"
+			/>
 		)
 	}
 	renderIndex () {
@@ -425,29 +539,26 @@ class IndexApp extends React.Component {
 						{this.renderFormTestimoni()}
 					</section>
 
-					<section className="spotlight style1 bottom">
-						<section id="map" className="spotlight style1 bottom"/>
-						<div className="content">
-							<div className="container">
-								<div className="row">
-									<div className="4u 12u$(medium)">
-										<header>
-											{parser.parse('<div>' + this.state.static.page6.header+ '</div>')}
-										</header>
-									</div>
-									<div className="4u 12u$(medium)">
-										{parser.parse('<div>' + this.state.static.page6.p1+ '</div>')}
-									</div>
-									<div className="4u$ 12u$(medium)">
-										{parser.parse('<div>' + this.state.static.page6.p2+ '</div>')}
-									</div>
-								</div>
+					<section id="seven" className="wrapper style1 special fade-up">
+						<div className="container">
+							<header className="major">
+								<h2>Our Precise Location</h2>
+								<ul className="actions">
+									<li>
+										<a href="geo:-6.2211729,106.830698" className="button">See through phone</a>
+									</li>
+								</ul>
+							</header>
+							<div className="box alt">
+								{this.renderMap()}
 							</div>
+							<footer className="major">
+								<ul className="actions">
+									<li><a href="#" className="button">See through phone</a></li>
+								</ul>
+							</footer>
 						</div>
-						<a href="#two" className="goto-next scrolly">Next</a>
 					</section>
-
-
 
 					<footer id="footer">
 						<ul className="icons">
