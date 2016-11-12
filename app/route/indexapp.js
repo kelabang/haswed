@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 02:07:14
+* @Last Modified time: 2016-11-13 05:11:14
 */
 
 'use strict';
@@ -41,7 +41,7 @@ class IndexApp extends React.Component {
 				title: `
 						<i class="standout">We are wedding</i>
 						<h2>Hasyim & Yoddie</h2>
-						<p >Jum'at, 29 November 1991</p>
+						<p >Saturday, 19th November 2016</p>
 						`,
 				page1: {
 					header: `
