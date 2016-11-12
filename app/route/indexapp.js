@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-06 02:50:59
+* @Last Modified time: 2016-11-13 02:07:14
 */
 
 'use strict';
@@ -35,35 +35,35 @@ class IndexApp extends React.Component {
 		      key: `Taiwan`,
 		      defaultAnimation: 2,
 		    }],
+		    showall: false,
 			static: {
 				logo: "Hasyim Yoddie",
-				title: `<h2>Hasyim & Yoddie</h2>
-						<p>Jum'at, 29 November 1991</p>`,
+				title: `
+						<i class="standout">We are wedding</i>
+						<h2>Hasyim & Yoddie</h2>
+						<p >Jum'at, 29 November 1991</p>
+						`,
 				page1: {
 					header: `
-						<h2>We are getting married</h2>
-						<p>
-							We can’t wait to celebrate our wedding
-							<br/>
-							<br/>Saturday, 19th November 2016
-							<br/>At Gedung Dharma Wanita Persatuan Pusat Jalan Pedurenan Masjid Kavling F.01 Karet Kuningan, Jakarta Selatan
+						<h2>On Saturday, 19th November 2016</h2>
+						<p class="grey">
+							At Gedung Dharma Wanita Persatuan Pusat
+							Jalan Pedurenan Masjid Kavling F.01 Karet Kuningan, Jakarta Selatan.
 						</p>
 					`,
 					p1: `
-						<p>
-							Akad Nikah
+						
+						<h2 style="text-align:center">Akad</h2>
+						<p style="text-align:center" class="grey">
 							08.00 a.m - 10.00 a.m
-
-							Resepsi
-							11.00 a.m - 1.00 p.m
 						</p>
+
+						
 					`,
 					p2: `
-						<p>
-							Until then, take some time exploring our site.
-							<br/>
-							<br/>The Family of Mr. Refilman Thaher & Mrs. Sriyanti
-							<br/>The Family of Mr. Jarkasih & Mrs. Agustini
+						<h2 style="text-align:center">Resepsi</h2>
+						<p style="text-align:center" class="grey">
+							11.00 a.m - 1.00 p.m
 						</p>
 					`,
 					p12: `
@@ -84,33 +84,34 @@ class IndexApp extends React.Component {
 				page2: {
 					header: `
 						<h2>Hasyim Azhari</h2>
-						<p>Nunc commodo accumsan eget id nisi eu col volutpat magna</p>
+						<p>
+							<b class="quote">"</b><b class="natural">Hasyim</b> is a man who never talks 'I', he always talks 'WE' when he told about his future, I love him because he made me believe that I worth it. I 'm happy as a part of his future plan.<b class="quote">"</b><br/> - <i>Yoddie Frianti</i>
+						</p>
 					`,
 					p1: `
-						<p>
-							Hasyim“Ithink‘technically’thegirlofmydreamswouldprobablyhaveanaverageweightandheight,youknow maybe a different hair. She’d probably be a little prettier.Buttruthfully,Yoddieisbetterthanthegirlofmydreams,she’sreal.Ilovehowshemakesmefeel,like anything's possible, or like life is worth it.”
-						</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
+						<p></p>
+		
 					`
 				},
 				page3: {
 					header: `
-						<h2>Yoddie</h2>
-						<p>Accumsan integer ultricies aliquam vel massa sapien phasellus</p>
+						<h2>Yoddie Fitrianti</h2>
+						<p>
+							<b class="quote">"</b>I think technically the girl of my dreams would probably have an average weight and height, you know maybe a different hair. 
+							She ’d probably be a little prettier.
+							But truthfully, <b class="natural">Yoddie</b> is better than the girl of my dreams, she ’s real. I love how she makes me feel, like anything 's possible, or like life is worth it.<b class="quote">"</b><br/> - <i>Hasyim Azhari</i>
+						</p>
 					`,
 					p1: `
-						<p>She homero prompta constituam pro. Vim omnis porro eu, iusto deserunt incorrupte sea ad. Aliquam compre hensam definitionem eam ex, ea ius facete nominaviId vim laudem nusquam, mea cu torquatos vituperat ribus, mea tation iisque in. An viris imperdiet mela Causae denique convenire no pri. Diam discere adole cens pri eu, vel dico vidisse disputationi ne. An sea unum iusto quando, id accumsan persecuti ius. Vidisse scaevola ut eam, ne his modo voluptua evertitur.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
+						<p>
+						</p>
+
 					`
 				},
 				page4: {
 					header: `
 						<h2>Testimoni from our friends</h2>
-						<p>Iaculis ac volutpat vis non enim gravida nisi faucibus posuere arcu consequat</p>
+						<p>Thanks for leaving something good for us!</p>
 					`
 				},
 				page5: {
@@ -172,11 +173,12 @@ class IndexApp extends React.Component {
 				profile: null,
 			},
 			background: {
-				backgroundcover: 'http://polar-acai.ospry.io/jn0jzvgo09d/banner.jpg',
+				backgroundcover: 'http://res.cloudinary.com/kelabang/image/upload/v1478798343/mgniytateldooroiwthg.jpg',
+				// backgroundcover: 'http://polar-acai.ospry.io/jn0jzvgo09d/banner.jpg',
 				cover: 'http://polar-acai.ospry.io/st5iuoal0kw/hasimyodi.jpg',
 				page1: 'http://wwcdn.weddingwire.com/vendor/355001_360000/357035/thumbnails/1200x1200_1402414035390-pavilion-ceremony-2-.jpg',
-				page2: 'http://polar-acai.ospry.io/9zv732swlnu/ChxumcrVAAEdezd.jpg',
-				page3: 'http://polar-acai.ospry.io/qfclkmlvxux/chelsea.jpg'
+				page2: 'http://polar-acai.ospry.io/kzargw6jd86/Profil-min.jpg',
+				page3: 'http://res.cloudinary.com/kelabang/image/upload/v1478798202/eeor90v49d51mshwmrbx.jpg'
 			}
 		}
 	}
@@ -332,7 +334,7 @@ class IndexApp extends React.Component {
 			<section key={uuid.v4()} className="4u 6u(medium) 12u$(xsmall)">
 				{imaged}
 				<h3>{name}</h3>
-				<p>"{content}"</p>
+				<p><b className="quote-content">"</b>{content}<b className="quote-content">"</b></p>
 			</section>
 		)
 	}
@@ -405,7 +407,7 @@ class IndexApp extends React.Component {
 			<div className="container">
 				<header>
 					<h2>Send your wish for us!</h2>
-					<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>
+					<p>Participate here, click the button</p>
 				</header>
 				<form onSubmit={this.onSubmitFormTestimoni.bind(this)} method="post" action="#" className="container 50%">
 						{toRender}
@@ -415,29 +417,11 @@ class IndexApp extends React.Component {
 	}
 	renderTestimoni () {
 		console.log(':: renderTestimoni')
-		let testimonies = [{
-			"name": "Rizaldy Yusuf",
-			"content": "Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor."
-		},{
-			"name": "Angga Ramdhana",
-			"content": "Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor."
-		},
-		{
-			"name": "Nike Putri Y",
-			"content": "Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor."
-		},
-		{
-			"name": "Vega Wibowo",
-			"content": "Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor."
-		}]
 		return (
 			<div className="row uniform">
 				{this.state.publictestimoni.map((v, i) => {
 					if (Util.isJSON(v.content)) {
 						let decode = JSON.parse(v.content)
-						console.log(':: decode')
-						console.log(decode)
-						// return (<div />)
 						return this.renderItemTestimoni(decode.name, decode.content, decode.image)
 					}
 				})}
@@ -456,6 +440,9 @@ class IndexApp extends React.Component {
 		const stylecover = {
 			backgroundImage: 'url('+ this.state.background.backgroundcover + ')'
 		}
+		let hehe = ''
+		if(this.state.showall) hehe = (<li><a href="#" className="button">See more wish</a></li>)
+		
 		return (
 			<div id="page-wrapper">
 					<header id="header">
@@ -529,7 +516,9 @@ class IndexApp extends React.Component {
 							</div>
 							<footer className="major">
 								<ul className="actions">
-									<li><a href="#" className="button">See more wish</a></li>
+									{
+										hehe
+									}
 								</ul>
 							</footer>
 						</div>
@@ -561,16 +550,9 @@ class IndexApp extends React.Component {
 					</section>
 
 					<footer id="footer">
-						<ul className="icons">
-							<li><a href="#" className="icon alt fa-twitter"><span className="label">Twitter</span></a></li>
-							<li><a href="#" className="icon alt fa-facebook"><span className="label">Facebook</span></a></li>
-							<li><a href="#" className="icon alt fa-linkedin"><span className="label">LinkedIn</span></a></li>
-							<li><a href="#" className="icon alt fa-instagram"><span className="label">Instagram</span></a></li>
-							<li><a href="#" className="icon alt fa-github"><span className="label">GitHub</span></a></li>
-							<li><a href="#" className="icon alt fa-envelope"><span className="label">Email</span></a></li>
-						</ul>
+						
 						<ul className="copyright">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy;2016 Hasyim & Yoddie 's Wedding.</li><li>Design: <a href="http://kelabang.github.io">Imam Tauhid</a></li>
 						</ul>
 					</footer>
 
@@ -579,8 +561,8 @@ class IndexApp extends React.Component {
 	}
 	render () {
 		console.log(':: render')
-		console.log('>> render IndexApp ', uuid.v4())
-		console.log(this.state.publictestimoni)
+		// console.log('>> render IndexApp ', uuid.v4())
+		// console.log(this.state.publictestimoni)
 		// return (this.props.loggedIn)? this.renderApp(): this.renderWelcome()
 		return this.renderIndex()
 	}

@@ -1,8 +1,8 @@
 /*
 * @Author: d4r
 * @Date:   2016-09-04 22:51:20
-* @Last Modified by:   d4r
-* @Last Modified time: 2016-09-18 16:21:24
+* @Last Modified by:   Imam
+* @Last Modified time: 2016-11-13 02:06:37
 */
 #banner:after{
  background-image: -webkit-linear-gradient(top, rgba(193, 193, 193, 0), rgba(255, 204, 177,0)), url("images/overlay.png")
@@ -67,4 +67,41 @@ header p {
 	#banner .content {
 		padding: 3em 1.5625em 5.25em 1.5625em;
 	}
+}
+span.name {
+	font-size: 25px;
+}
+.grey {
+	color: #774f38!important;
+}
+.black-widow {
+	color: rgb(67, 62, 62)!important;
+}
+.name.center {
+	text-align: center
+}
+.name.center p {
+	font-size: 25px;
+}
+.name.center p.bottom {
+	margin-bottom: 0;
+}
+.name.center p.small {
+	font-size: 12px!important;
+	margin: 0;
+}
+.standout {
+	font-size: 1.24em;
+	color: #774f38;
+}
+.quote {
+	font-size: 1.25em;
+}
+.quote-content {
+	color: #969696;
+	font-size: 1.25em;
+}
+.natural{
+	color: #774f38!important;
+	font-weight: 400;
 }
