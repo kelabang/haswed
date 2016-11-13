@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 19:04:15
+* @Last Modified time: 2016-11-13 19:08:25
 */
 
 'use strict';
@@ -114,7 +114,7 @@ class IndexApp extends React.Component {
 				},
 				page4: {
 					header: `
-						<h2>Testimoni from our friends</h2>
+						<h2>Whises from our friends</h2>
 						<p>Thanks for leaving something good for us!</p>
 					`
 				},
@@ -194,13 +194,11 @@ class IndexApp extends React.Component {
 			Util.getDataProfile(),
 			Util.getPublicTestimoni()
 		]).then((v) => {
-			console.log(':: all return ',v)
 			let formtestimoni = v[0]
 			let publictestimoni = v[1]
 			let toUpdate = {}
 			if(formtestimoni) {
 				// this.state.formtestimoni.profile.screen_name
-				console.log(formtestimoni)
 				toUpdate.screen_name = (formtestimoni.screen_name)? '@'+formtestimoni.screen_name: formtestimoni.name
 				toUpdate.formtestimoni = {
 					connect: true,
@@ -222,7 +220,6 @@ class IndexApp extends React.Component {
 		})
 		$('a.canclick').off('mousedown')
 		$('a.canclick').on('mousedown', (e) => {
-			console.log('clicked')
 			e.preventDefault()
 			let href = $(e.target).attr('href')
 			let dom = document.getElementById(href.replace('#', ''))
@@ -252,15 +249,11 @@ class IndexApp extends React.Component {
 		// $('#navPanel a.link').off('click')
 		// $('#navPanel a.link').on('click', (e) => {
 		// 	e.preventDefault()
-		// 	console.log('link')
 		// })
 		$('a.canclick').off('mousedown')
 		$('a.canclick').on('mousedown', (e) => {
-			console.log('clicked')
 			e.preventDefault()
-			console.log(e.target)
 			let href = $(e.target).attr('href')
-			console.log(href)
 			let dom = document.getElementById(href.replace('#', ''))
 			dom.scrollIntoView()
 		})
@@ -268,10 +261,8 @@ class IndexApp extends React.Component {
 		this.autogrowTextarea()
 	}
 	componentWillUnmount() {
-		console.log(':: componentWillUnmount')
 	}
 	renderWelcome () {
-		console.log(':: renderWelcome')
 		return (
 			<PublicWelcome />
 		)
@@ -282,17 +273,14 @@ class IndexApp extends React.Component {
 		)
 	}
 	updateTestimoni () {
-		console.log(':: updateTestimoni')
 		Util.getPublicTestimoni()
 			.then((body) => {
-				console.log(body)
 				this.setState({
 					"publictestimoni": body.data
 				})
 			})
 	}
 	renderItemTestimoni (name, content, image) {
-		console.log(":: renderItemTestimoni")
 		let imaged = (image)? (<img className="icon alt major" src={image} />): (<span className="icon alt major fa-area-chart">
 				</span>)
 		if(content.length > 140) content = content.substring(0, 140) + '...'
@@ -305,7 +293,6 @@ class IndexApp extends React.Component {
 		)
 	}
 	onSubmitFormTestimoni (e) {
-		console.log(':: noSubmitFormTestimoni')
 		e.preventDefault()
 		let content  = this.refs.content.value
 		let name = this.state.formtestimoni.profile.name
@@ -317,29 +304,20 @@ class IndexApp extends React.Component {
 		if(image) image = image.replace('_normal', '')
 		Util.submitTestimoni(name, content, image, alias, user_id, provider)
 			.then((data) => {
-				console.log('stored ..')
-				console.log(data)
 				this.updateTestimoni()
 			})
 			.catch(() => {
-				console.log('error')
 			})
-		console.log(name)
-		console.log(content)
 	}
 	onConnectTwitter (e) {
-		console.log(':: connect twitter')
 		e.preventDefault()
 		Util.twitterLogin()
 	}
 	onConnectGoogle (e) {
-		console.log(':: connect google')
 		e.preventDefault()
 		Util.googleLogin()
 	}
 	autogrowTextarea () {
-		console.log(':: autogrowTextarea')
-		console.log(this.refs.content)
 		const textarea = this.refs.content
 		const heightLimit = 200
 		if(textarea){
@@ -353,10 +331,7 @@ class IndexApp extends React.Component {
 		}
 	}
 	renderFormTestimoni () {
-		console.log(':: renderFormTestimoni')
 		const twitterAuth = Util.getAuthTwitter()
-		console.log(twitterAuth)
-		console.log(this.state.formtestimoni)
 		let toRender = (
 			<div className="row uniform 50%">
 				<div className="12u$ 12u$(xsmall)"><input onClick={this.onConnectTwitter.bind(this)} type="button" value="login with twitter" className="fit special" /></div>
@@ -382,7 +357,6 @@ class IndexApp extends React.Component {
 		)
 	}
 	renderTestimoni () {
-		console.log(':: renderTestimoni')
 		return (
 			<div className="row uniform">
 				{this.state.publictestimoni.map((v, i) => {
