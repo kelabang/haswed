@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 17:01:12
+* @Last Modified time: 2016-11-13 17:38:48
 */
 
 'use strict';
@@ -176,8 +176,8 @@ class IndexApp extends React.Component {
 				cover: 'http://res.cloudinary.com/kelabang/image/upload/c_crop,r_8/v1479022786/hehq3qz7jhxz77gvt2d4.jpg',
 				page1: 'http://wwcdn.weddingwire.com/vendor/355001_360000/357035/thumbnails/1200x1200_1402414035390-pavilion-ceremony-2-.jpg',
 				// page2: 'http://polar-acai.ospry.io/kzargw6jd86/Profil-min.jpg',
-				page2: 'http://res.cloudinary.com/kelabang/image/upload/v1479027256/flnum4oeymbwfbpdaggm.jpg',
-				page3: 'http://res.cloudinary.com/kelabang/image/upload/v1479027304/yjeyoip5mbchofrkj4vq.jpg'
+				page2: 'http://res.cloudinary.com/kelabang/image/upload/v1479033344/sx0xtciemwhencku0bad.jpg',
+				page3: 'http://res.cloudinary.com/kelabang/image/upload/v1479033347/bhqo2qgwqerczfvqjyix.jpg'
 				// page3: 'http://res.cloudinary.com/kelabang/image/upload/v1478798202/eeor90v49d51mshwmrbx.jpg'
 			}
 		}
