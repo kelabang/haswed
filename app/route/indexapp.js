@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 19:08:25
+* @Last Modified time: 2016-11-13 19:18:59
 */
 
 'use strict';
@@ -42,7 +42,7 @@ class IndexApp extends React.Component {
 						`,
 				page1: {
 					header: `
-						<h2>On Saturday, November 19, 2016</h2>
+						<h2>On Saturday,<br> November 19, 2016</h2>
 						<p class="grey">
 							At Gedung Dharma Wanita Persatuan Pusat
 							Jalan Pedurenan Masjid Kavling F.01<br/> 
@@ -90,7 +90,7 @@ class IndexApp extends React.Component {
 					header: `
 						<h2>Hasyim Azhari</h2>
 						<p>
-							<b class="quote">"</b><b class="natural">Hasyim</b> ia a man who never talks "I", he always talks "WE" when he told about his future. I love him because he made me believe that I'm worth it. I 'm happy to be a part of his future plan.<b class="quote">"</b><br/> - <i>Yoddie Frianti</i>
+							<b class="quote">"</b><b class="natural">Hasyim</b> is a man who never talks "I", he always talks "WE" when he told about his future. I love him because he made me believe that I'm worth it. I 'm happy to be a part of his future plan.<b class="quote">"</b><br/> - <i>Yoddie Frianti</i>
 						</p>
 					`,
 					p1: `
