@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 19:18:59
+* @Last Modified time: 2016-11-13 23:45:39
 */
 
 'use strict';
@@ -488,9 +488,10 @@ class IndexApp extends React.Component {
 					</section>
 
 					<footer id="footer">
-						
 						<ul className="copyright">
-							<li>&copy;2016 Hasyim & Yoddie 's Wedding.</li><li>Design: <a href="http://kelabang.github.io">Imam Tauhid</a></li>
+							<li>&copy;2016 Hasyim & Yoddie 's Wedding.</li>
+							<li>Base Design by <a href="https://html5up.net">HTML5 UP</a></li>
+							<li>Customized Design by <a href="http://kelabang.github.io">Imam Tauhid</a></li>
 						</ul>
 					</footer>
 
