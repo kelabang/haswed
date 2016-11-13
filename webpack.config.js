@@ -88,7 +88,8 @@ const config = {
 		new webpack.ProvidePlugin(DependencyTree),
 		new webpack.optimize.UglifyJsPlugin({
 		    compress: {
-		        warnings: false
+		        warnings: false,
+		        comments: false
 		    }
 		}),
 		new webpack.optimize.DedupePlugin()

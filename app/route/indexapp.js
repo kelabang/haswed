@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 05:11:14
+* @Last Modified time: 2016-11-13 13:41:32
 */
 
 'use strict';
@@ -11,20 +11,17 @@ import Modal from './modal.js'
 import BuilderMenu from './../module/menu/component/buildermenu.smart.component.js'
 import PublicWelcome from './public/publicwelcome.js'
 import GRMap from './../module/map/component/map.smart.component.js'
-// import WeddingMain from './../module/wedding/component/wedding.main.component.js'
 import createHashHistory from 'history/lib/createHashHistory'
 import update from 'react/lib/update'
 const GEDUNG_DARMA_WANITA = {
   lat: -6.2211729,
   lng: 106.830698
 };
-// import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 const scrollIntoView = require('@treora/scroll-into-view')
 const appHistory = ReactRouter.useRouterHistory(createHashHistory)({queryKey: false})
 const parser = new HTMLtoReact.Parser(React)
 class IndexApp extends React.Component {
 	constructor (props) {
-		console.log(':: constructor')
 		super(props)
 		this.state = {
 			markers: [{
@@ -183,17 +180,6 @@ class IndexApp extends React.Component {
 		}
 	}
 	componentWillMount () {
-		console.log(':: componentWillMount')
-		// Util.getDataProfile().then((data) => {
-		// 	console.log(":: componentWillMount getDataProfile")
-		// 	console.log(data)
-		// 	this.setState(update(this.state, {
-		// 		"formtestimoni": {
-		// 			connect: {$set: true},
-		// 			profile: {$set: data}
-		// 		}
-		// 	}))
-		// })
 		Promise.all([
 			Util.getDataProfile(),
 			Util.getPublicTestimoni()
@@ -215,13 +201,8 @@ class IndexApp extends React.Component {
 			this.setState(toUpdate)
 
 		})
-		// Util.mainBind()
-		// this.props.dispatch(Actions.AUTH_REFRESH())
-
 	}
 	componentDidMount() {
-		console.log(':: componentDidMount')
-		// console.log(Util)
 		scrollIntoView.installPolyfill()
 		Util.Main.init()
 		this.autogrowTextarea()
@@ -272,21 +253,13 @@ class IndexApp extends React.Component {
 			console.log(href)
 			let dom = document.getElementById(href.replace('#', ''))
 			dom.scrollIntoView()
-			// let dom = document.getElementById(id)
-			// scrollIntoView.call(this, {behavior: "smooth"})
 		})
 
 		this.autogrowTextarea()
 	}
 	componentWillUnmount() {
 		console.log(':: componentWillUnmount')
-		// window.removeEventListener('resize', this.handleResize.bind(this))
 	}
-	// handleResize(e){
-	// 	e.preventDefault()
-	// 	console.log(':: handleResize')
-	// 	this.props.dispatch(Actions.UPDATE_RESIZE(window.innerHeight, window.innerWidth))
-	// }
 	renderWelcome () {
 		console.log(':: renderWelcome')
 		return (
@@ -294,7 +267,6 @@ class IndexApp extends React.Component {
 		)
 	}
 	renderMenuBuilder () {
-		console.log(':: renderMenuBuilder')
 		return (
 			<BuilderMenu schema={this.state.static.menu} />
 		)
@@ -309,22 +281,6 @@ class IndexApp extends React.Component {
 				})
 			})
 	}
-	// renderApp () {
-	// 	console.log(':: renderApp')
-	// 	if(!this.props.children){
-	// 		setTimeout(() => {
-	// 			return appHistory.push(this.props.route.childRoutes[0].path)
-	// 		}, 0)
-	// 		return (<div></div>)
-	// 	}
-	// 	return (
-	// 		<div>
-	// 			{this.props.children}
-	// 			<Modal/>
-	// 		</div>
-	// 	)
-	// }
-	//
 	renderItemTestimoni (name, content, image) {
 		console.log(":: renderItemTestimoni")
 		let imaged = (image)? (<img className="icon alt major" src={image} />): (<span className="icon alt major fa-area-chart">
@@ -436,13 +392,11 @@ class IndexApp extends React.Component {
 		)
 	}
 	renderIndex () {
-		console.log(':: renderIndex')
 		const stylecover = {
 			backgroundImage: 'url('+ this.state.background.backgroundcover + ')'
 		}
 		let hehe = ''
 		if(this.state.showall) hehe = (<li><a href="#" className="button">See more wish</a></li>)
-		
 		return (
 			<div id="page-wrapper">
 					<header id="header">
@@ -534,7 +488,7 @@ class IndexApp extends React.Component {
 								<h2>Our Precise Location</h2>
 								<ul className="actions">
 									<li>
-										<a href="geo:-6.2211729,106.830698" className="button">See through phone</a>
+										<a href="https://google.com/maps/?q=-6.2211729,106.830698" className="button">See through phone</a>
 									</li>
 								</ul>
 							</header>
@@ -543,7 +497,7 @@ class IndexApp extends React.Component {
 							</div>
 							<footer className="major">
 								<ul className="actions">
-									<li><a href="#" className="button">See through phone</a></li>
+									<li><a href="https://google.com/maps/?q=-6.2211729,106.830698" className="button">See through phone</a></li>
 								</ul>
 							</footer>
 						</div>
@@ -560,10 +514,6 @@ class IndexApp extends React.Component {
 		)
 	}
 	render () {
-		console.log(':: render')
-		// console.log('>> render IndexApp ', uuid.v4())
-		// console.log(this.state.publictestimoni)
-		// return (this.props.loggedIn)? this.renderApp(): this.renderWelcome()
 		return this.renderIndex()
 	}
 }
