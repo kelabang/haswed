@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 13:41:32
+* @Last Modified time: 2016-11-13 14:21:20
 */
 
 'use strict';
@@ -36,7 +36,7 @@ class IndexApp extends React.Component {
 			static: {
 				logo: "Hasyim Yoddie",
 				title: `
-						<i class="standout">We are wedding</i>
+						<i class="standout">We are getting married</i>
 						<h2>Hasyim & Yoddie</h2>
 						<p >Saturday, 19th November 2016</p>
 						`,
