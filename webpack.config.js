@@ -82,7 +82,13 @@ const config = {
 		filename: 'bundle.js'
 	},
 	plugins: [
-		new webpack.ProvidePlugin(DependencyTree)
+		new webpack.ProvidePlugin(DependencyTree),
+		new webpack.optimize.UglifyJsPlugin({
+		    compress: {
+		        warnings: false
+		    }
+		}),
+		new webpack.optimize.DedupePlugin()
 	],
 	resolve: {
 		extensions: ['', '.js', '.jsx', 'index.js', 'index.jsx', '.json', 'index.json']
@@ -101,7 +107,7 @@ const config = {
 			},
 			{ test: /\.json$/, loader: 'json'}
 		]
-	}
+	},
 }
 
 module.exports = config
