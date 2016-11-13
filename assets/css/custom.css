@@ -2,7 +2,7 @@
 * @Author: d4r
 * @Date:   2016-09-04 22:51:20
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 13:12:50
+* @Last Modified time: 2016-11-13 19:01:56
 */
 #banner:after{
  background-image: -webkit-linear-gradient(top, rgba(193, 193, 193, 0), rgba(255, 204, 177,0)), url("images/overlay.png");
@@ -105,4 +105,16 @@ span.name {
 .natural{
 	color: #774f38!important;
 	font-weight: 400;
+}
+.center-image {
+	display: block;
+    width: 55px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.icon-image-cake {
+	background: url("http://res.cloudinary.com/kelabang/image/upload/v1479036385/xgpwhxv7ws1jg2hptopb.png") no-repeat center center;
+    height: 200px;
+    width: 200px;
 }

@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 17:43:55
+* @Last Modified time: 2016-11-13 19:04:15
 */
 
 'use strict';
@@ -38,19 +38,23 @@ class IndexApp extends React.Component {
 				title: `
 						<i class="standout">We are getting married</i>
 						<h2>Hasyim & Yoddie</h2>
-						<p >Saturday, 19th November 2016</p>
+						<p >Saturday, November 19, 2016</p>
 						`,
 				page1: {
 					header: `
-						<h2>On Saturday, 19th November 2016</h2>
+						<h2>On Saturday, November 19, 2016</h2>
 						<p class="grey">
 							At Gedung Dharma Wanita Persatuan Pusat
-							Jalan Pedurenan Masjid Kavling F.01 Karet Kuningan, Jakarta Selatan.
+							Jalan Pedurenan Masjid Kavling F.01<br/> 
+							Karet Kuningan, Jakarta Selatan.
 						</p>
 					`,
 					p1: `
-						
-						<h2 style="text-align:center">Akad</h2>
+						<br/>
+						<img
+							class="center-image"
+							src="http://res.cloudinary.com/kelabang/image/upload/v1479036406/whexmf0ncstcqxkynnd3.png" />
+						<h2 style="text-align:center">Ceremony</h2>
 						<p style="text-align:center" class="grey">
 							08.00 a.m - 10.00 a.m
 						</p>
@@ -58,7 +62,11 @@ class IndexApp extends React.Component {
 						
 					`,
 					p2: `
-						<h2 style="text-align:center">Resepsi</h2>
+						<br/>
+						<img 
+							class="center-image"
+							src="http://res.cloudinary.com/kelabang/image/upload/v1479036385/xgpwhxv7ws1jg2hptopb.png" />
+						<h2 style="text-align:center">Reception</h2>
 						<p style="text-align:center" class="grey">
 							11.00 a.m - 1.00 p.m
 						</p>
@@ -82,7 +90,7 @@ class IndexApp extends React.Component {
 					header: `
 						<h2>Hasyim Azhari</h2>
 						<p>
-							<b class="quote">"</b><b class="natural">Hasyim</b> is a man who never talks 'I', he always talks 'WE' when he told about his future, I love him because he made me believe that I worth it. I 'm happy as a part of his future plan.<b class="quote">"</b><br/> - <i>Yoddie Frianti</i>
+							<b class="quote">"</b><b class="natural">Hasyim</b> ia a man who never talks "I", he always talks "WE" when he told about his future. I love him because he made me believe that I'm worth it. I 'm happy to be a part of his future plan.<b class="quote">"</b><br/> - <i>Yoddie Frianti</i>
 						</p>
 					`,
 					p1: `
@@ -94,9 +102,8 @@ class IndexApp extends React.Component {
 					header: `
 						<h2>Yoddie Fitrianti</h2>
 						<p>
-							<b class="quote">"</b>I think technically the girl of my dreams would probably have an average weight and height, you know maybe a different hair. 
-							She ’d probably be a little prettier.
-							But truthfully, <b class="natural">Yoddie</b> is better than the girl of my dreams, she ’s real. I love how she makes me feel, like anything 's possible, or like life is worth it.<b class="quote">"</b><br/> - <i>Hasyim Azhari</i>
+							<b class="quote">"</b>I think, technically, the girl of my dream would probably have an average weight and height, you know, maybe with different hair. She ’d probably be a little prettier.
+							But truthfully, <b class="natural">Yoddie</b> is better than the girl of my dream. She ’s real. I love how she makes me feel, like anything 's possible, or like life is worth it.<b class="quote">"</b><br/> - <i>Hasyim Azhari</i>
 						</p>
 					`,
 					p1: `
