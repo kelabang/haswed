@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 17:38:48
+* @Last Modified time: 2016-11-13 17:43:55
 */
 
 'use strict';
@@ -170,7 +170,7 @@ class IndexApp extends React.Component {
 				profile: null,
 			},
 			background: {
-				backgroundcover: 'http://res.cloudinary.com/kelabang/image/upload/v1478798343/mgniytateldooroiwthg.jpg',
+				backgroundcover: 'http://res.cloudinary.com/kelabang/image/upload/v1479033768/jpknvbzlo9grjvdz8tje.jpg',
 				// backgroundcover: 'http://polar-acai.ospry.io/jn0jzvgo09d/banner.jpg',
 				// cover: 'http://polar-acai.ospry.io/st5iuoal0kw/hasimyodi.jpg',
 				cover: 'http://res.cloudinary.com/kelabang/image/upload/c_crop,r_8/v1479022786/hehq3qz7jhxz77gvt2d4.jpg',
