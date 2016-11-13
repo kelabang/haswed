@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-11-06 01:19:25
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-06 02:49:07
+* @Last Modified time: 2016-11-13 13:16:25
 */
 
 'use strict';
@@ -72,7 +72,7 @@ class GRMap extends React.Component {
 	render () {
 		console.log('render data map')
 		return (
-			<div ref="map" style={mapStyle} >this is fuck map</div>
+			<div ref="map" style={mapStyle} >There's something not we're expected to be happen, sorry. Just try in several minutes.</div>
 		)
 	}
 }
