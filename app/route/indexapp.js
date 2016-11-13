@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 23:45:39
+* @Last Modified time: 2016-11-13 23:57:57
 */
 
 'use strict';
@@ -472,7 +472,7 @@ class IndexApp extends React.Component {
 								<h2>Our Precise Location</h2>
 								<ul className="actions">
 									<li>
-										<a href="https://google.com/maps/?q=-6.2211729,106.830698" className="button">See through phone</a>
+										<a target="_blank" href="https://google.com/maps/?q=-6.2211729,106.830698" className="button">See through phone</a>
 									</li>
 								</ul>
 							</header>
@@ -481,7 +481,7 @@ class IndexApp extends React.Component {
 							</div>
 							<footer className="major">
 								<ul className="actions">
-									<li><a href="https://google.com/maps/?q=-6.2211729,106.830698" className="button">See through phone</a></li>
+									<li><a target="_blank" href="https://google.com/maps/?q=-6.2211729,106.830698" className="button">See through phone</a></li>
 								</ul>
 							</footer>
 						</div>
@@ -490,8 +490,8 @@ class IndexApp extends React.Component {
 					<footer id="footer">
 						<ul className="copyright">
 							<li>&copy;2016 Hasyim & Yoddie 's Wedding.</li>
-							<li>Base Design by <a href="https://html5up.net">HTML5 UP</a></li>
-							<li>Customized Design by <a href="http://kelabang.github.io">Imam Tauhid</a></li>
+							<li>Base Design by <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+							<li>Customize Design by <a href="http://kelabang.github.io" target="_blank" >Imam Tauhid</a></li>
 						</ul>
 					</footer>
 
