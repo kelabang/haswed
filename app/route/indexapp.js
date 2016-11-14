@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-13 23:57:57
+* @Last Modified time: 2016-11-14 07:21:47
 */
 
 'use strict';
@@ -100,7 +100,7 @@ class IndexApp extends React.Component {
 				},
 				page3: {
 					header: `
-						<h2>Yoddie Fitrianti</h2>
+						<h2>Yoddie Frianti</h2>
 						<p>
 							<b class="quote">"</b>I think, technically, the girl of my dream would probably have an average weight and height, you know, maybe with different hair. She ’d probably be a little prettier.
 							But truthfully, <b class="natural">Yoddie</b> is better than the girl of my dream. She ’s real. I love how she makes me feel, like anything 's possible, or like life is worth it.<b class="quote">"</b><br/> - <i>Hasyim Azhari</i>
