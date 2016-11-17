@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-14 07:21:47
+* @Last Modified time: 2016-11-18 04:32:05
 */
 
 'use strict';
@@ -205,7 +205,7 @@ class IndexApp extends React.Component {
 					profile: formtestimoni
 				}
 			}
-			if(publictestimoni) toUpdate.publictestimoni = publictestimoni.data
+			if(publictestimoni) toUpdate.publictestimoni = publictestimoni.data.reverse()
 			this.setState(toUpdate)
 
 		})
@@ -280,15 +280,21 @@ class IndexApp extends React.Component {
 				})
 			})
 	}
-	renderItemTestimoni (name, content, image) {
+	renderItemTestimoni (name, content, image, date, raw) {
 		let imaged = (image)? (<img className="icon alt major" src={image} />): (<span className="icon alt major fa-area-chart">
 				</span>)
+		let logo = (raw.type.includes('google'))? 
+			(<a href={"https://plus.google.com/"+raw.user_id} className="icon alt hoho fa-google"></a>): 
+			(<a href={"https://twitter.com/"+raw.alias} className="icon alt hoho fa-twitter"></a>)
+		date = moment(date, "YYYY-MM-DD hh:mm:ss").fromNow() 
 		if(content.length > 140) content = content.substring(0, 140) + '...'
 		return (
-			<section key={uuid.v4()} className="4u 6u(medium) 12u$(xsmall)">
+			<section key={uuid.v4()} className="testimoni-item 4u 6u(medium) 12u$(xsmall)">
 				{imaged}
+				{logo}
 				<h3>{name}</h3>
 				<p><b className="quote-content">"</b>{content}<b className="quote-content">"</b></p>
+				<span className="pastime">{date}</span> 
 			</section>
 		)
 	}
@@ -362,7 +368,7 @@ class IndexApp extends React.Component {
 				{this.state.publictestimoni.map((v, i) => {
 					if (Util.isJSON(v.content)) {
 						let decode = JSON.parse(v.content)
-						return this.renderItemTestimoni(decode.name, decode.content, decode.image)
+						return this.renderItemTestimoni(decode.name, decode.content, decode.image, v.datecreated, decode)
 					}
 				})}
 			</div>
@@ -472,7 +478,7 @@ class IndexApp extends React.Component {
 								<h2>Our Precise Location</h2>
 								<ul className="actions">
 									<li>
-										<a target="_blank" href="https://google.com/maps/?q=-6.2211729,106.830698" className="button">See through phone</a>
+										<a target="_blank" href="https://google.com/maps/?q=-6.2211729,106.830698" className="button">Go To Map</a>
 									</li>
 								</ul>
 							</header>
@@ -481,7 +487,7 @@ class IndexApp extends React.Component {
 							</div>
 							<footer className="major">
 								<ul className="actions">
-									<li><a target="_blank" href="https://google.com/maps/?q=-6.2211729,106.830698" className="button">See through phone</a></li>
+									<li><a target="_blank" href="https://google.com/maps/?q=-6.2211729,106.830698" className="button">Go To Map</a></li>
 								</ul>
 							</footer>
 						</div>
