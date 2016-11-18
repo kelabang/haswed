@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-18 12:42:10
+* @Last Modified time: 2016-11-18 14:02:13
 */
 
 'use strict';
@@ -394,7 +394,7 @@ class IndexApp extends React.Component {
 				let toDisplay = null
 				let decode = JSON.parse(v.content)
 				let item = this.renderItemTestimoni(decode.name, decode.content, decode.image, v.datecreated, decode)
-				row.push(item)
+				if(decode.content) row.push(item)
 				if(count > count+1) {
 					row = []
 					count = 0
