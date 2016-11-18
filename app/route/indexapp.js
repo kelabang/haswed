@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-18 14:02:13
+* @Last Modified time: 2016-11-18 14:26:11
 */
 
 'use strict';
@@ -288,7 +288,7 @@ class IndexApp extends React.Component {
 		let logo = (raw.type.includes('google'))? 
 			(<a href={"https://plus.google.com/"+raw.user_id} className="icon alt hoho fa-google"></a>): 
 			(<a href={"https://twitter.com/"+raw.alias} className="icon alt hoho fa-twitter"></a>)
-		date = moment(date, "YYYY-MM-DD hh:mm:ss").fromNow() 
+		date = moment.utc(date).fromNow() 
 		if(content.length > 180) content = content.substring(0, 180) + '...'
 		return (
 			<section key={uuid.v4()} className="testimoni-item 4u 6u(medium) 12u$(xsmall)">
