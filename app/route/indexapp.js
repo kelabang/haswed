@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-18 11:11:06
+* @Last Modified time: 2016-11-18 11:37:33
 */
 
 'use strict';
@@ -293,8 +293,10 @@ class IndexApp extends React.Component {
 				{imaged}
 				{logo}
 				<h3>{name}</h3>
-				<p><b className="quote-content">"</b>{content}<b className="quote-content">"</b></p>
-				<span className="pastime">{date}</span> 
+				<p>
+				<b className="quote-content">"</b>{content}<b className="quote-content">"</b><br/>
+				<span className="pastime">{date}</span>
+				</p>
 			</section>
 		)
 	}
@@ -383,7 +385,7 @@ class IndexApp extends React.Component {
 				let decode = JSON.parse(v.content)
 				let item = this.renderItemTestimoni(decode.name, decode.content, decode.image, v.datecreated, decode)
 				row.push(item)
-				if(count > 2) {
+				if(count > count+1) {
 					row = []
 					count = 0
 				}				
