@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-18 04:32:05
+* @Last Modified time: 2016-11-18 11:11:06
 */
 
 'use strict';
@@ -362,17 +362,39 @@ class IndexApp extends React.Component {
 			</div>
 		)
 	}
-	renderTestimoni () {
+	renderNewRowTestimoni (comp) {
 		return (
 			<div className="row uniform">
-				{this.state.publictestimoni.map((v, i) => {
-					if (Util.isJSON(v.content)) {
-						let decode = JSON.parse(v.content)
-						return this.renderItemTestimoni(decode.name, decode.content, decode.image, v.datecreated, decode)
-					}
-				})}
+				{comp}
 			</div>
 		)
+	}
+	renderTestimoni () {
+		console.log('renderTestimoni')
+		let count = 0
+		let rows = []
+		let row = []
+		let final = []
+		this.state.publictestimoni.map((v, i) => {
+			if (Util.isJSON(v.content)) {
+				count++
+				if(count == 1) rows.push(row)
+				let toDisplay = null
+				let decode = JSON.parse(v.content)
+				let item = this.renderItemTestimoni(decode.name, decode.content, decode.image, v.datecreated, decode)
+				row.push(item)
+				if(count > 2) {
+					row = []
+					count = 0
+				}				
+			}
+		})
+		console.log(rows)
+		rows.map((v) => {
+			let f = this.renderNewRowTestimoni(v)
+			final.push(f)
+		})
+		return (final)
 	}
 	renderMap () {
 		return ( 
