@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-08-14 19:03:35
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-05 00:38:28
+* @Last Modified time: 2016-11-18 12:48:21
 */
 
 'use strict';
@@ -30,7 +30,6 @@ export function isJSON (strjson) {
 }
 
 export function getDataProfile () {
-	console.log(':: getDataProfile')
 	const path = "https://kelabang.au.auth0.com/tokeninfo"	
 	const tw = getAuthTwitter()
 	const header = {
@@ -53,7 +52,6 @@ export function getDataProfile () {
 }
 
 export function getPublicTestimoni () {
-	console.log(':: getPublicTestimoni')
 	const path = api_domain+'/testimoni'
 	const header = {
 	      'Accept': 'application/json',
@@ -138,7 +136,6 @@ export function googleLogin () {
 }
 
 export function uppercaseFirst (string) {
-	console.log(':: UppercaseFirst')
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 

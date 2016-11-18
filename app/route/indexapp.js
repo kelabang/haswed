@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-18 12:01:34
+* @Last Modified time: 2016-11-18 12:42:10
 */
 
 'use strict';
@@ -24,6 +24,8 @@ class IndexApp extends React.Component {
 	constructor (props) {
 		super(props)
 		this.state = {
+			max: 180,
+			curr: 0,
 			markers: [{
 		      position: {
 		        lat: 25.0112183,
@@ -287,7 +289,7 @@ class IndexApp extends React.Component {
 			(<a href={"https://plus.google.com/"+raw.user_id} className="icon alt hoho fa-google"></a>): 
 			(<a href={"https://twitter.com/"+raw.alias} className="icon alt hoho fa-twitter"></a>)
 		date = moment(date, "YYYY-MM-DD hh:mm:ss").fromNow() 
-		if(content.length > 140) content = content.substring(0, 140) + '...'
+		if(content.length > 180) content = content.substring(0, 180) + '...'
 		return (
 			<section key={uuid.v4()} className="testimoni-item 4u 6u(medium) 12u$(xsmall)">
 				{imaged}
@@ -296,12 +298,14 @@ class IndexApp extends React.Component {
 				<p>
 				<b className="quote-content">"</b>{content}<b className="quote-content">"</b><br/>
 				<span className="pastime">{date}</span>
-				</p>
+				</p> 
 			</section>
 		)
 	}
 	onSubmitFormTestimoni (e) {
 		e.preventDefault()
+		if(this.state.curr > this.state.max) return alert('maximum 180 character :(')
+		if(this.state.curr < 1) return alert('fill ur wishes box first :)')
 		let content  = this.refs.content.value
 		let name = this.state.formtestimoni.profile.name
 		let alias = this.state.formtestimoni.profile.screen_name || this.state.formtestimoni.profile.name
@@ -338,8 +342,15 @@ class IndexApp extends React.Component {
 			}
 		}
 	}
+	handleLimit (e) {
+		let newState = Object.assign({}, this.state)
+		let text = e.target.value
+		newState.curr = text.length
+		this.setState(newState) 
+	}
 	renderFormTestimoni () {
-		const twitterAuth = Util.getAuthTwitter()
+		let count = this.state.max - this.state.curr
+		let charleft = count + " character(s) left"
 		let toRender = (
 			<div className="row uniform 50%">
 				<div className="12u$ 12u$(xsmall)"><input onClick={this.onConnectTwitter.bind(this)} type="button" value="login with twitter" className="fit special" /></div>
@@ -348,7 +359,7 @@ class IndexApp extends React.Component {
 		)
 		if(this.state.formtestimoni.connect) toRender = (
 			<div className="row uniform 50%">
-				<div className="12u$ 12u$(xsmall)"><textarea ref="content" placeholder="Your Wishes here..." /></div>
+				<div className="12u$ 12u$(xsmall)"><textarea onChange={this.handleLimit.bind(this)} ref="content" placeholder="Your Wishes here..." /><span className="pastime">{charleft}</span></div>
 				<div className="12u$ 12u$(xsmall)"><input type="submit" value={"Submit Wishes as " + this.state.screen_name} className="fit special" /></div>
 			</div>
 		)
@@ -372,7 +383,6 @@ class IndexApp extends React.Component {
 		)
 	}
 	renderTestimoni () {
-		console.log('renderTestimoni')
 		let count = 0
 		let rows = []
 		let row = []
@@ -391,7 +401,6 @@ class IndexApp extends React.Component {
 				}				
 			}
 		})
-		console.log(rows)
 		rows.map((v) => {
 			let f = this.renderNewRowTestimoni(v)
 			final.push(f)
