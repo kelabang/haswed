@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-18 11:37:33
+* @Last Modified time: 2016-11-18 11:54:16
 */
 
 'use strict';
@@ -348,8 +348,8 @@ class IndexApp extends React.Component {
 		)
 		if(this.state.formtestimoni.connect) toRender = (
 			<div className="row uniform 50%">
-				<div className="12u$ 12u$(xsmall)"><textarea ref="content" placeholder="Your Whises here..." /></div>
-				<div className="12u$ 12u$(xsmall)"><input type="submit" value={"Submit Whises as " + this.state.screen_name} className="fit special" /></div>
+				<div className="12u$ 12u$(xsmall)"><textarea ref="content" placeholder="Your Wishes here..." /></div>
+				<div className="12u$ 12u$(xsmall)"><input type="submit" value={"Submit Wishes as " + this.state.screen_name} className="fit special" /></div>
 			</div>
 		)
 		return (
