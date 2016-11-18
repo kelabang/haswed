@@ -2,7 +2,7 @@
 * @Author: Imam
 * @Date:   2016-07-31 23:49:21
 * @Last Modified by:   Imam
-* @Last Modified time: 2016-11-18 11:54:16
+* @Last Modified time: 2016-11-18 12:01:34
 */
 
 'use strict';
@@ -114,7 +114,7 @@ class IndexApp extends React.Component {
 				},
 				page4: {
 					header: `
-						<h2>Whises from our friends</h2>
+						<h2>Wishes from our friends</h2>
 						<p>Thanks for leaving something good for us!</p>
 					`
 				},
